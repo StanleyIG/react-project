@@ -1,10 +1,9 @@
 import './Button.css';
 
-function Button() {
-
-  return (
-		<button className='button accent'>Сохранить</button>
-  );
+function Button({ text, onClick }) {
+	return (
+		<button className='button accent' onClick={onClick}>{text}</button>
+	);
 }
 
 export default Button;

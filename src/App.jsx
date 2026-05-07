@@ -9,8 +9,14 @@ import { useLocalStorage } from './hooks/use-localstorage.hook';
 import { UserContextProvidev } from './context/user.context';
 
 function App() {
-  const [items, selectedItem, setItem, setSelectedItem] =
-    useLocalStorage('data');
+  const [
+    items,
+    selectedItem,
+    setItem,
+    setSelectedItem
+  ] = useLocalStorage('data');
+
+  const selectedItemID = selectedItem?.id;
 
   return (
     <UserContextProvidev>
@@ -18,7 +24,11 @@ function App() {
         <LeftPanel>
           <Header />
           <JournalAddButton />
-          <JournalList items={items} setItem={setSelectedItem} selectedItem={selectedItem} />
+          <JournalList
+            items={items}
+            setItem={setSelectedItem}
+            selectedItemID={selectedItemID}
+          />
         </LeftPanel>
         <Body>
           <JournalForm onSubmit={setItem} data={selectedItem} />

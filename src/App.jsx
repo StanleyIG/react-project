@@ -18,7 +18,7 @@ function App() {
         <LeftPanel>
           <Header />
           <JournalAddButton />
-          <JournalList items={items} setItem={setSelectedItem} />
+          <JournalList items={items} setItem={setSelectedItem} selectedItem={selectedItem} />
         </LeftPanel>
         <Body>
           <JournalForm onSubmit={setItem} data={selectedItem} />

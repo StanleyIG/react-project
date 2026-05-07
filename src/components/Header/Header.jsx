@@ -6,20 +6,19 @@ import Logo from '../Logo/Logo';
 const logos = ['/logo.svg', '/vite.svg'];
 
 function Header() {
-	const [logoIndex, setLogoIndex] = useState(0);
-	console.log('Header');
+  const [logoIndex, setLogoIndex] = useState(0);
 
-	const toggleLogo = useCallback(() => {
-		setLogoIndex(state => Number(!state));
-	}, []);
+  const toggleLogo = useCallback(() => {
+    setLogoIndex((state) => Number(!state));
+  }, []);
 
-	return (
-		<>
-			<Logo image={logos[logoIndex]} />
-			<SelectUser />
-			<Button onClick={toggleLogo}>Сменить лого</Button>
-		</>
-	);
+  return (
+    <>
+      <Logo image={logos[logoIndex]} />
+      <SelectUser />
+      <Button onClick={toggleLogo}>Сменить лого</Button>
+    </>
+  );
 }
 
 export default Header;
@@ -42,11 +41,11 @@ export default Header;
 
 // 	return (
 // 		<>
-// 			<img 
+// 			<img
 // 				ref={imgRef}
-// 				className={styles.logo} 
-// 				src={logos[0]} 
-// 				alt="Логотип журнала" 
+// 				className={styles.logo}
+// 				src={logos[0]}
+// 				alt="Логотип журнала"
 // 			/>
 // 			<SelectUser />
 // 			<Button onClick={toggleLogo}>Сменить лого</Button>

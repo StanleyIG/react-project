@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export function useLocalStorage(key) {
   const [data, setData] = useState([]);
-  const [selectedItem, setSelectedItem] = useState({});
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     setData(() => {
@@ -42,5 +42,11 @@ export function useLocalStorage(key) {
     setData(newData);
   };
 
-  return [data, selectedItem, setItem, setSelectedItem];
+  const deleteItem = (id) => {
+      let newData = [...data.filter(i => i.id !== id)];
+      saveData(newData);
+    };
+
+
+  return [data, selectedItem, setItem, setSelectedItem, deleteItem];
 }
